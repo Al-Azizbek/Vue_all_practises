@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS Practise</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="vue_js.css">
+</head>
+<body>
+    <div id="vue-app" class="container">
+        <h1>{{ message}}</h1>
+         <!-- Basics of vue -->
+        <!-- <h2>{{greet()}}</h2> -->
+        <a v-bind:href="website">Net Ninja</a>
+        <p>Uzbekistan was established {{year}}</p>
+        
+        <!-- Events in vue -->
+        <h1>Events</h1>
+        <button v-on:click.once = "add">Add</button>
+        <button v-on:click = "sub">Sub</button>
+        <button v-on:dblclick = "dbladd(10)">Add</button>
+        <button v-on:dblclick = "dblsub(10)">Sub</button>
+        <a v-on:click.prevent = "click_website_link" href="https://www.google.com/">Google</a>
+        
+        <!-- Keyboard Events in vue -->
+        <h1>Keyboard Events</h1>
+        <label>Name:</label>
+        <input v-on:keyup.enter = "logName" type="text" v-model = "UserName">
+        <span>{{UserName}}</span>
+        <label>Age:</label>
+        <input v-on:keyup.enter = "logAge" type="text" v-model = "UserAge">
+        <span>{{UserAge}}</span>
+
+         <!-- Dynamic CSS in vue -->
+        <h1>Dynamic CSS</h1>
+        <div v-bind:class = "{available : available}" v-on:click = "available = !available">
+            <span>CodingNewBie</span>
+        </div>
+
+         <!-- Conditionals (v-if/v-else-if and show) in vue -->
+        <h1>Conditionals</h1> 
+        <button v-on:click = "error = !error">Error</button>
+        <button v-on:click = "success = !success">Success</button>
+        <p v-if = "error">There has been Error.</p>
+        <p v-else-if = "success">There has been Success.</p>
+        <p v-show = "error">There has been Error.</p>
+        <p v-show = "success">There has been Success.</p>
+         
+        <!-- looping with Vue v-for -->
+        <h1>Looping with V-for</h1>
+        <!-- <p>{{webNames[0]}}</p> -->
+        <ul>
+            <li v-for = " webName in webNames">{{webName.name}} - {{webName.age}}</li>
+        </ul>
+        <ul>
+            <li v-for = " (webName,index) in webNames">{{index}}.{{webName.name}} - {{webName.age}}</li>
+        </ul>
+        <div v-for = " (webName,index) in webNames">
+            <h3>{{index}}.{{webName.name}}</h3>
+            <p>{{webName.age}}</p>
+        </div>
+
+    </div>
+    <div id="vue-app-two" class="container">
+        <!-- Multiple Instance with Vue  -->
+        <h1>Multiple Instance with Vue</h1>
+        <button v-on:click = "titleChange">Click me to change the Title</button>
+        <h3>{{title}}</h3>
+        
+        <!-- Components in Vue  -->
+        <!-- <greeting></greeting>    -->
+
+        <!-- Refs in Vue -->
+        <h1>Refs in Vue</h1>
+        <input type="text" ref = "user_active_name">
+        <button v-on:click = "readRefs">submit</button>
+        <h6>User's favourite food is {{favFood}}.</h6>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="vue_js.js"></script> 
+</body>
+</html>
