@@ -1,18 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
+    <appHeading v-bind:title = "title"/>
+    
+    <appIndex v-bind:userNames = "userNames" />
+    <appFooter v-bind:title = "title"/>
+  
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import appHeading from './components/heading.vue'
+import appFooter from './components/footer.vue'
+import appIndex from './components/index.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+   
+    appHeading,
+    appFooter,
+    appIndex,
+  },
+  data(){
+    return{
+       title: "CodingNewBie",
+       userNames : [
+            {name:"Azizbek", speci: "Math", show:false},
+            {name:"Azizbe", speci: "Mat", show:false},
+            {name:"Azizb", speci: "Ma", show:false},
+            {name:"Aziz", speci: "M", show:false},
+        ]
+    }
   }
+ 
+
 }
 </script>
 
